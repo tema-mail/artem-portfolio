@@ -1,0 +1,42 @@
+Reading additional input from stdin...
+2026-11-18T16:50:30.079746Z ERROR codex_models_manager::manager: failed to refresh available models: unexpected status 401 Unauthorized: Encountered invalidated oauth token for user, failing request, url: https://chatgpt.com/backend-api/codex/models?client_version=0.151.0, cf-ray: a5c8797a6bbafb8d-AMS, request id: req_861d312bd20c4535a039bdb671b75e0e, auth error: 401, auth error code: token_revoked
+2026-11-18T16:50:30.193528Z ERROR codex_models_manager::manager: failed to refresh available models: unexpected status 401 Unauthorized: Encountered invalidated oauth token for user, failing request, url: https://chatgpt.com/backend-api/codex/models?client_version=0.151.0, cf-ray: a5c8797acabeb8c0-AMS, request id: req_94aba70ccbee4d1bbc5db947257c4ccd, auth error: 401, auth error code: token_revoked
+OpenAI Codex v0.151.0
+--------
+workdir: /Users/artemgalimov/Sites/artem-portfolio/assets/raw/bg
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1ef91-28b2-7a02-8185-544fae0346cf
+--------
+user
+Сгенерируй одно изображение встроенным imagegen. Пропорции: 9:16, вертикальная, 1024x1792 или больше.
+Скопируй текст между маркерами в imagegen дословно, символ в символ. Не перефразируй, не сокращай, не дополняй, не «улучшай».
+
+=== НАЧАЛО ПРОМТА ===
+Tall vertical painted illustration of the Novosibirsk city at golden-hour sunset, in the style of 2000s video game loading-screen artwork: sky gradient from deep violet at the top through magenta and pink to warm peach-orange near the horizon, large soft glowing sun low on the horizon. The horizon is in the lower third of the image: on the left the Novosibirsk Opera and Ballet Theatre with its large silver dome and columned portico, on the right the red arched Bugrinsky bridge over the wide Ob river with sunset reflections in the water. Tall dark purple palm tree silhouettes on the far left and right edges. The upper two thirds are calm open sky with soft clouds. Painterly, crisp silhouettes, rich saturated colors. No people, no text, no logos, no cars.
+=== КОНЕЦ ПРОМТА ===
+
+Сохрани результат как /Users/artemgalimov/Sites/artem-portfolio/assets/raw/bg/nsk-story.png. API-ключи и scripts/image_gen.py не используй. Затем приведи точную строку, которую передал в imagegen.
+2026-11-18T16:50:31.489993Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when UnexpectedServerResponse("HTTP 401: {\n  \"error\": {\n    \"message\": \"Encountered invalidated oauth token for user, failing request\",\n    \"type\": null,\n    \"code\": \"token_revoked\",\n    \"param\": null\n  },\n  \"status\": 401\n}")
+2026-11-18T16:50:31.548477Z ERROR codex_memories_write::phase2: Phase 2 no changes
+2026-11-18T16:50:31.669839Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when UnexpectedServerResponse("HTTP 401: {\n  \"error\": {\n    \"message\": \"Encountered invalidated oauth token for user, failing request\",\n    \"type\": null,\n    \"code\": \"token_revoked\",\n    \"param\": null\n  },\n  \"status\": 401\n}")
+2026-11-18T16:50:33.309928Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 401 Unauthorized, url: wss://chatgpt.com/backend-api/codex/responses
+2026-11-18T16:50:33.799126Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 401 Unauthorized, url: wss://chatgpt.com/backend-api/codex/responses
+2026-11-18T16:50:34.373657Z ERROR codex_login::auth::manager: Failed to refresh token: 401 Unauthorized: {
+  "error": {
+    "message": "Your session has ended. Please log in again.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": "refresh_token_invalidated"
+  }
+}
+2026-11-18T16:50:34.605971Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when UnexpectedServerResponse("HTTP 401: {\n  \"error\": {\n    \"message\": \"Encountered invalidated oauth token for user, failing request\",\n    \"type\": null,\n    \"code\": \"token_revoked\",\n    \"param\": null\n  },\n  \"status\": 401\n}")
+warning: Skill descriptions were shortened to fit the skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+2026-11-18T16:50:37.184880Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 401 Unauthorized, url: wss://chatgpt.com/backend-api/codex/responses
+2026-11-18T16:50:37.646278Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 401 Unauthorized, url: wss://chatgpt.com/backend-api/codex/responses
+ERROR: Your access token could not be refreshed because your refresh token was revoked. Please log out and sign in again.
+ERROR: Your access token could not be refreshed because your refresh token was revoked. Please log out and sign in again.

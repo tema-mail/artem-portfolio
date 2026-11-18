@@ -1,0 +1,70 @@
+---
+// Сторис 1080×1920 по первому экрану TEYES (Артём 18.11.2026: «адаптируй под сторис, без платных – GPT image и сам»).
+// ?v=1 – вариант 1 (Артём в центре), по умолчанию вариант 2 (Кирилл в центре). Скриншот 1080×1920 на claude-vps.
+// Безопасные зоны: сверху ~250 px и снизу ~250 px под интерфейс ВК/Инстаграма – там только фон.
+import '@fontsource/dela-gothic-one';
+import '@fontsource-variable/inter';
+
+const B = import.meta.env.BASE_URL;
+const img = (p: string) => `${B}img/${p}`;
+---
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TEYES Sibir – сторис</title>
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body>
+  <div class="story" id="story" data-team1={img('teyes-team.webp')} data-team2={img('teyes-team-v2.webp')}>
+    <img class="bg" src={img('nsk-story.webp')} alt="" width="1080" height="1920" />
+    <p class="brand">установочный центр · новосибирск</p>
+    <h1 class="title"><span>TEYES</span><span>SIBIR</span></h1>
+    <img class="team" id="team" src={img('teyes-team-v2.webp')} alt="Команда TEYES Sibir" width="1600" height="1195" />
+    <div class="hud">
+      <div class="num">1000<i>+</i></div>
+      <div class="label">сделанных<br />машин</div>
+    </div>
+    <div class="cta">
+      <div class="btn">Записаться на установку</div>
+      <div class="sub">Сухарная, 35 к13 · Telegram @teyesnsk</div>
+    </div>
+  </div>
+
+  <script>
+    const p = new URLSearchParams(location.search);
+    const st = document.getElementById('story')!;
+    if (p.get('v') === '1') (document.getElementById('team') as HTMLImageElement).src = st.dataset.team1!;
+    // превью в браузере: вписать 1080×1920 в окно; для съёмки окно и так 1080×1920
+    const fit = () => { const k = Math.min(innerWidth / 1080, innerHeight / 1920, 1); st.style.transform = `scale(${k})`; };
+    addEventListener('resize', fit); fit();
+  </script>
+</body>
+</html>
+
+<style is:global>
+  :root { --display: 'Dela Gothic One', 'Arial Black', sans-serif; }
+  html, body { margin: 0; background: #1b0d31; overflow: hidden; }
+  .story { position: relative; width: 1080px; height: 1920px; overflow: hidden; transform-origin: 0 0; color: #fff; font-family: var(--display); }
+  .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .brand {
+    position: absolute; top: 250px; left: 0; right: 0; margin: 0; text-align: center; font-size: 38px; letter-spacing: .04em;
+    color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, .9);
+  }
+  .title {
+    position: absolute; top: 315px; left: 0; right: 0; margin: 0; font-weight: 400; display: flex; flex-direction: column; align-items: center;
+    font-size: 215px; line-height: .86; letter-spacing: -.01em; text-shadow: 0 12px 0 #6b2a7f, 0 24px 60px rgba(40, 0, 60, .35);
+  }
+  .team { position: absolute; left: 50%; bottom: 290px; width: 1120px; height: auto; transform: translateX(-50%); filter: drop-shadow(0 30px 50px rgba(60, 0, 50, .45)); }
+  .hud { position: absolute; left: 50%; top: 712px; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+  .num { font-size: 92px; line-height: 1; border: 5px solid #fff; padding: 8px 28px 16px; text-shadow: 0 6px 0 #6b2a7f; background: rgba(42, 20, 70, .3); }
+  .num i { font-style: normal; color: #ffd23f; }
+  .label { font-size: 30px; line-height: 1.15; text-transform: uppercase; background: #fff; color: #d31c2a; padding: 12px 18px; }
+  .cta { position: absolute; left: 60px; right: 60px; bottom: 250px; display: grid; gap: 18px; justify-items: center; }
+  .btn {
+    width: 100%; text-align: center; font-size: 50px; text-transform: uppercase; padding: 34px 20px; border-radius: 30px;
+    background: #ff3fa4; box-shadow: 0 12px 0 #d9007a, 0 30px 60px rgba(0, 0, 0, .35);
+  }
+  .sub { font: 600 32px 'Inter Variable', Inter, sans-serif; background: rgba(27, 13, 49, .78); padding: 14px 26px; border-radius: 99px; }
+</style>
