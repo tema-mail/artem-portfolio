@@ -74,10 +74,10 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .scene__title {
   position: absolute; left: 50%; top: 21%; transform: translateX(-50%); z-index: 0; width: max-content;
   display: flex; flex-direction: column; align-items: center;
-  font: 400 clamp(84px, 15.5vw, 250px)/.86 var(--display); letter-spacing: -.01em; color: #fff;
+  font: 400 clamp(84px, 11.5vw, 210px)/.86 var(--display); letter-spacing: -.01em; color: #fff;
   text-shadow: 0 .045em 0 #6b2a7f, 0 .1em .25em rgba(40, 0, 60, .35);
 }
-.scene__title span:last-child { margin-left: .5em; }
+.scene__title span:last-child { margin-left: .3em; }
 .scene__hero {
   position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 1; height: 90%; width: auto; max-width: none;
   filter: drop-shadow(0 20px 40px rgba(60, 0, 50, .45));
@@ -139,7 +139,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 /* ---------- общие секции ---------- */
 section:not(.scene) { margin: 96px var(--gut) 0; }
 .kicker { margin: 0 0 10px; font: 400 13px var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--pink); }
-.h2 { font: 400 clamp(32px, 5vw, 60px)/1.02 var(--display); text-shadow: 0 4px 0 #5b1f6b; max-width: 18ch; }
+.h2 { font: 400 clamp(32px, 5vw, 60px)/1.02 var(--display); text-shadow: 0 4px 0 #5b1f6b; max-width: 24ch; text-wrap: balance; }
 .lead { color: var(--muted); max-width: 56ch; margin: 16px 0 0; }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
 .reveal.in { opacity: 1; transform: none; }
@@ -160,7 +160,7 @@ section:not(.scene) { margin: 96px var(--gut) 0; }
 .card--mint { --tone: var(--mint); }
 .card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; transition: transform .5s; }
 .card a:hover img { transform: scale(1.04); }
-.card a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(20, 6, 36, .95) 88%); pointer-events: none; }
+.card a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 6, 36, 0) 25%, rgba(20, 6, 36, .82) 55%, rgba(20, 6, 36, .97) 78%); pointer-events: none; }
 .card__tag, .card__note {
   position: absolute; top: 12px; z-index: 2; font: 400 11px/1 var(--display); text-transform: uppercase; padding: 7px 10px;
   border-radius: 99px; background: rgba(20, 6, 36, .8);
@@ -221,7 +221,8 @@ section:not(.scene) { margin: 96px var(--gut) 0; }
   .top__cta { display: none; }
   .stage { height: 600px; border-radius: 22px; }
   .scene__brand { top: 26px; font-size: 15px; }
-  .scene__title { top: 15%; font-size: clamp(64px, 21vw, 110px); }
+  .scene__title { top: 15%; font-size: clamp(56px, 18vw, 100px); }
+  .scene__title span:last-child { margin-left: 0; }
   .scene__hero { height: 74%; }
   .hud { left: 14px; top: auto; bottom: 120px; gap: 4px; }
   .hud__num { font-size: 34px; padding: 4px 10px 6px; border-width: 2px; }
