@@ -1,0 +1,51 @@
+---
+// Заставка: логотип при самом первом заходе с устройства (localStorage 'ag-intro', правило Артёма 13.11.2026).
+// Класс no-intro ставит встроенный скрипт в <head> до отрисовки.
+---
+<div class="intro" id="intro" data-intro aria-hidden="true">
+    <div class="intro__logo"><span>ARTEM</span><span>GALIMOV</span></div>
+    <button class="intro__skip" type="button" id="introSkip">Пропустить</button>
+  </div>
+
+<style>
+/* ---------- заставка ---------- */
+.intro {
+  position: fixed; inset: 0; z-index: 100; background: #000; display: grid; place-items: center;
+  transition: opacity .6s ease, visibility .6s;
+}
+:global(.no-intro) .intro, :global(.intro-done) .intro { opacity: 0; visibility: hidden; }
+.intro__logo {
+  display: flex; gap: .3em; font: 400 clamp(40px, 9vw, 120px)/1 var(--display); letter-spacing: -.02em;
+  background: linear-gradient(180deg, #ffe0f0 0%, var(--pink) 45%, var(--peach) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 0 #5b1f6b);
+  animation: logoIn 2.2s cubic-bezier(.2, .8, .2, 1) both;
+}
+.intro__logo span:last-child { transform: rotate(-4deg) translateY(.08em); display: inline-block; }
+@keyframes logoIn {
+  0% { opacity: 0; transform: scale(1.5); filter: blur(14px) drop-shadow(0 6px 0 #5b1f6b); }
+  45% { opacity: 1; transform: scale(1); filter: blur(0) drop-shadow(0 6px 0 #5b1f6b); }
+  100% { transform: scale(1.04); }
+}
+.intro__skip {
+  position: absolute; bottom: 28px; right: 28px; background: none; border: 1px solid rgba(255,255,255,.3);
+  color: var(--muted); font: 500 14px var(--text); padding: 10px 16px; border-radius: 99px; cursor: pointer;
+}
+</style>
+
+<script>
+    const root = document.documentElement;
+    const intro = document.getElementById('intro');
+    const done = () => {
+      root.classList.add('intro-done');
+      try { localStorage.setItem('ag-intro', '1'); } catch (e) {}
+      setTimeout(() => intro?.remove(), 700);
+    };
+    if (root.classList.contains('no-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      intro?.remove();
+      try { localStorage.setItem('ag-intro', '1'); } catch (e) {}
+    } else {
+      setTimeout(done, 2600);
+      document.getElementById('introSkip')?.addEventListener('click', done);
+    }
+</script>

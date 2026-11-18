@@ -28,30 +28,6 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 h1, h2, h3 { margin: 0; font-weight: 400; }
 
-/* ---------- заставка ---------- */
-.intro {
-  position: fixed; inset: 0; z-index: 100; background: #000; display: grid; place-items: center;
-  transition: opacity .6s ease, visibility .6s;
-}
-.no-intro .intro, .intro-done .intro { opacity: 0; visibility: hidden; }
-.intro__logo {
-  display: flex; gap: .3em; font: 400 clamp(40px, 9vw, 120px)/1 var(--display); letter-spacing: -.02em;
-  background: linear-gradient(180deg, #ffe0f0 0%, var(--pink) 45%, var(--peach) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 6px 0 #5b1f6b);
-  animation: logoIn 2.2s cubic-bezier(.2, .8, .2, 1) both;
-}
-.intro__logo span:last-child { transform: rotate(-4deg) translateY(.08em); display: inline-block; }
-@keyframes logoIn {
-  0% { opacity: 0; transform: scale(1.5); filter: blur(14px) drop-shadow(0 6px 0 #5b1f6b); }
-  45% { opacity: 1; transform: scale(1); filter: blur(0) drop-shadow(0 6px 0 #5b1f6b); }
-  100% { transform: scale(1.04); }
-}
-.intro__skip {
-  position: absolute; bottom: 28px; right: 28px; background: none; border: 1px solid rgba(255,255,255,.3);
-  color: var(--muted); font: 500 14px var(--text); padding: 10px 16px; border-radius: 99px; cursor: pointer;
-}
-
 /* ---------- шапка ---------- */
 .top {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between;
