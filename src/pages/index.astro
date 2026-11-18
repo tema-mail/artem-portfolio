@@ -1,0 +1,198 @@
+---
+import '@fontsource/dela-gothic-one';
+import '@fontsource-variable/inter';
+import '../styles/site.css';
+import { works, liveCount } from '../data/works';
+
+const B = import.meta.env.BASE_URL;
+const img = (p: string) => `${B}img/${p}`;
+const tones = ['pink', 'yellow', 'mint'];
+const tel = '+79537777891';
+const tg = 'https://t.me/Artem1Galimov';
+const max = 'https://max.ru/u/f9LHodD0cOKS6C3PPXRh8eHyRKrJiSTUcpsOsnbQDl6Cp3LSE-Xu-dNig7c';
+const title = 'Артём Галимов – сайты, которые приводят заявки | портфолио';
+const description = 'Портфолио Артёма Галимова, студия Deford: живые сайты – магазины, каталоги, лендинги, сайты сервисов на коде с SEO и админкой. Новосибирск.';
+---
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <!-- Стенд: тестовый режим, в поиск не пускаем -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`https://tema-mail.github.io${img('og-cover.jpg')}`} />
+  <meta name="theme-color" content="#2a1446" />
+  <link rel="preload" as="image" href={img('sunset.webp')} imagesrcset={`${img('sunset-900.webp')} 900w, ${img('sunset.webp')} 1672w`} imagesizes="100vw" />
+  <script is:inline>
+    // Заставка – только при первом заходе с устройства (правило 13.11.2026)
+    try { if (localStorage.getItem('ag-intro')) document.documentElement.classList.add('no-intro'); } catch (e) { document.documentElement.classList.add('no-intro'); }
+  </script>
+</head>
+<body>
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__logo"><span>ARTEM</span><span>GALIMOV</span></div>
+    <button class="intro__skip" type="button" id="introSkip">Пропустить</button>
+  </div>
+
+  <header class="top">
+    <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <a class="top__logo" href="#top">galimov</a>
+    <a class="top__cta" href={tg} target="_blank" rel="noopener">Написать</a>
+  </header>
+
+  <nav class="menu" id="menu" hidden>
+    <a href="#missions">Миссии</a>
+    <a href="#about">Обо мне</a>
+    <a href="#steps">Как работаем</a>
+    <a href="#contact">Связаться</a>
+  </nav>
+
+  <main id="top">
+    <!-- Первый экран: как в референсе – закат, портрет, большое слово за спиной, карточки по бокам -->
+    <section class="scene" aria-label="Артём Галимов">
+      <div class="stage">
+        <picture class="scene__bg">
+          <source srcset={`${img('sunset-900.webp')} 900w, ${img('sunset.webp')} 1672w`} sizes="100vw" type="image/webp" />
+          <img src={img('sunset.webp')} alt="" width="1672" height="941" fetchpriority="high" />
+        </picture>
+
+        <p class="scene__brand">artem galimov · deford</p>
+        <h1 class="scene__title" aria-label="Артём Галимов – портфолио сайтов">
+          <span>ПОРТ</span><span>ФОЛИО</span>
+        </h1>
+
+        <img class="scene__hero" src={img('artem.webp')} srcset={`${img('artem-600.webp')} 600w, ${img('artem.webp')} 1000w`} sizes="(max-width: 760px) 92vw, 46vw" alt="Артём Галимов, рисованный портрет" width="1000" height="1339" />
+
+        <div class="hud">
+          <div class="hud__num">{liveCount}</div>
+          <div class="hud__label">сайтов в бою</div>
+          <div class="hud__stars" aria-label="Пять звёзд">★★★★★</div>
+        </div>
+
+        <ul class="chips">
+          <li>сайты на коде</li><li>магазины</li><li>SEO</li><li>админки</li>
+        </ul>
+
+        <a class="start" href="#missions">Начать</a>
+        <a class="badge" href="https://deford.ru/" target="_blank" rel="noopener" aria-label="Студия Deford">D</a>
+      </div>
+
+      <aside class="welcome">
+        <h2>Добро пожаловать в портфолио</h2>
+        <p>Делаю сайты, которые приводят заявки: магазины, каталоги, лендинги и сайты сервисов – на коде, с SEO и кабинетом заявок. Свои бизнесы тоже на моих сайтах.</p>
+        <a class="welcome__shot" href="#missions"><img src={img('works/ev.webp')} alt="Сайт EV Service" width="960" height="600" loading="lazy" /></a>
+        <a class="welcome__link" href="#missions">Смотреть работы <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+
+    <!-- Миссии = работы -->
+    <section class="missions reveal" id="missions" aria-labelledby="mTitle">
+      <p class="kicker">выбери миссию</p>
+      <h2 id="mTitle" class="h2">6 сайтов, которыми горжусь</h2>
+      <p class="lead">Каждая карточка – рабочий сайт. Нажмите – откроется в новой вкладке.</p>
+      <ul class="grid">
+        {works.map((w, i) => (
+          <li class={`card card--${tones[i % 3]}`}>
+            <a href={w.url} target="_blank" rel="noopener">
+              <span class="card__tag">миссия {String(i + 1).padStart(2, '0')}</span>
+              {w.note && <span class="card__note">{w.note}</span>}
+              <img src={img(`works/${w.id}.webp`)} alt={`Сайт ${w.name}`} width="960" height="600" loading="lazy" decoding="async" />
+              <span class="card__body">
+                <span class="card__type">{w.type}</span>
+                <span class="card__name">{w.name} · {w.place} <span aria-hidden="true">→</span></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Обо мне -->
+    <section class="about reveal" id="about" aria-labelledby="aTitle">
+      <div class="about__pic"><img src={img('artem-600.webp')} alt="" width="600" height="804" loading="lazy" /></div>
+      <div class="about__text">
+        <p class="kicker">кто за рулём</p>
+        <h2 id="aTitle" class="h2">Артём Галимов</h2>
+        <p>Основатель студии Deford, Новосибирск. У меня свои бизнесы – установочный центр TEYES Sibir и сервис электромобилей EV Service. Их сайты я делал сам, поэтому всё, что предлагаю клиентам, сначала проверено на своих деньгах.</p>
+        <ul class="facts">
+          <li><b>На коде</b><span>не конструктор: быстрая загрузка, своя админка, без абонентки за платформу</span></li>
+          <li><b>SEO с первого дня</b><span>карта сайта, понятные адреса, разметка и ответы для Алисы и нейросетей</span></li>
+          <li><b>Заявки видно</b><span>каждая заявка в кабинете: откуда пришла и с какой страницы</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Как проходит миссия -->
+    <section class="steps reveal" id="steps" aria-labelledby="sTitle">
+      <p class="kicker">как проходит миссия</p>
+      <h2 id="sTitle" class="h2">От заявки до запуска – 4 шага</h2>
+      <ol>
+        <li><b>Карта сайта</b><span>Какие страницы, под какие запросы и с какими адресами. Согласуем до дизайна.</span></li>
+        <li><b>Прототип и тексты</b><span>Смыслы, оффер, порядок блоков. Видите страницу целиком до вёрстки.</span></li>
+        <li><b>Дизайн и код</b><span>Собираю на коде, проверяю телефон, скорость и формы.</span></li>
+        <li><b>Запуск</b><span>Домен, Метрика, Вебмастер, заявки в кабинет. Дальше – рост из поиска.</span></li>
+      </ol>
+    </section>
+
+    <!-- Связаться -->
+    <section class="contact reveal" id="contact" aria-labelledby="cTitle">
+      <p class="kicker">новая миссия</p>
+      <h2 id="cTitle" class="h2">Расскажите о бизнесе – отвечу сам</h2>
+      <p class="lead">Первая работа – от 35 000 ₽. Скажу, какой сайт нужен вашему бизнесу и сколько он будет стоить.</p>
+      <div class="contact__btns">
+        <a class="btn btn--pink" href={tg} target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn--yellow" href={max} target="_blank" rel="noopener">Макс</a>
+        <a class="btn btn--ghost" href={`tel:${tel}`}>+7 953 777-78-91</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Артём Галимов · студия <a href="https://deford.ru/" target="_blank" rel="noopener">Deford</a></span>
+    <span>Новосибирск</span>
+  </footer>
+
+  <nav class="tabbar" aria-label="Быстрые действия">
+    <a href="#missions">Работы</a>
+    <a href={tg} target="_blank" rel="noopener">Telegram</a>
+    <a href={`tel:${tel}`}>Позвонить</a>
+  </nav>
+
+  <script>
+    const root = document.documentElement;
+    const intro = document.getElementById('intro');
+    const done = () => {
+      root.classList.add('intro-done');
+      try { localStorage.setItem('ag-intro', '1'); } catch (e) {}
+      setTimeout(() => intro?.remove(), 700);
+    };
+    if (root.classList.contains('no-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      intro?.remove();
+      try { localStorage.setItem('ag-intro', '1'); } catch (e) {}
+    } else {
+      setTimeout(done, 2600);
+      document.getElementById('introSkip')?.addEventListener('click', done);
+    }
+
+    // меню
+    const burger = document.getElementById('burger')!;
+    const menu = document.getElementById('menu')!;
+    const toggle = (open: boolean) => { menu.hidden = !open; burger.setAttribute('aria-expanded', String(open)); root.classList.toggle('menu-open', open); };
+    burger.addEventListener('click', () => toggle(menu.hidden));
+    menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).tagName === 'A') toggle(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+
+    // шапка после прокрутки
+    const onScroll = () => root.classList.toggle('scrolled', scrollY > 120);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    // появление блоков
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
