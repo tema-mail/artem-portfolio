@@ -25,7 +25,7 @@ const title = 'TEYES Sibir – установка мультимедиа Teyes �
 </head>
 <body class="teyes">
   <header class="top">
-    <nav class="variants" aria-label="Варианты"><a href={`${B}teyes/`} aria-current={V===1?'page':undefined}>Вариант 1</a><a href={`${B}teyes/v2/`} aria-current={V===2?'page':undefined}>Вариант 2</a></nav>
+    <nav class="variants" aria-label="Варианты"><a href={`${B}teyes/`} aria-current={V===1?'page':undefined}><span class="vw">Вариант </span>1</a><a href={`${B}teyes/v2/`} aria-current={V===2?'page':undefined}><span class="vw">Вариант </span>2</a></nav>
     <a class="top__cta" href={tg} target="_blank" rel="noopener">Записаться</a>
   </header>
 
@@ -79,7 +79,9 @@ const title = 'TEYES Sibir – установка мультимедиа Teyes �
   .teyes .welcome h2 { color: #d31c2a; }
   .teyes .hud__label { color: #d31c2a; }
   @media (max-width: 760px) {
-    .teyes .top__cta { display: inline-block; }
+    .teyes .top__cta { display: inline-block; padding: 10px 14px; font-size: 13px; }
+    .vw { display: none; }
+    .variants a { padding: 8px 12px; }
     .teyes .scene__hero--team { height: auto; width: 128%; }
     .teyes .scene__title { font-size: clamp(56px, 19vw, 100px); top: 12%; }
     .teyes .scene__brand { display: none; }
