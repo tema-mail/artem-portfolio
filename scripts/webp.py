@@ -33,16 +33,17 @@ og.convert("RGB").save(out / "og-cover.jpg", quality=85); print("og-cover.jpg")
 from PIL import ImageFilter
 import numpy as np
 from collections import deque
-t = Image.open(raw / "team/team1.png").convert("RGB"); t = t.resize((1600, round(t.height * 1600 / t.width)), Image.LANCZOS)
-a = np.asarray(t).astype(int); h, w, _ = a.shape
-bg = np.median(np.concatenate([a[0], a[:, 0], a[:, -1]]), axis=0); d = np.sqrt(((a - bg) ** 2).sum(2))
-mask = np.zeros((h, w), bool); q = deque([(0, x) for x in range(w)] + [(y, 0) for y in range(h)] + [(y, w - 1) for y in range(h)])
-while q:
-    y, x = q.popleft()
-    if mask[y, x] or d[y, x] > 22: continue
-    mask[y, x] = True
-    for yy, xx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
-        if 0 <= yy < h and 0 <= xx < w and not mask[yy, xx]: q.append((yy, xx))
-alpha = Image.fromarray(((~mask) * 255).astype("uint8")).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
-t.putalpha(alpha); save(t, out / "teyes-team.webp", 1600); save(t, out / "teyes-team-800.webp", 800)
+for tn, outn in (("team1", "teyes-team"), ("team2", "teyes-team-v2")):
+  t = Image.open(raw / f"team/{tn}.png").convert("RGB"); t = t.resize((1600, round(t.height * 1600 / t.width)), Image.LANCZOS)
+  a = np.asarray(t).astype(int); h, w, _ = a.shape
+  bg = np.median(np.concatenate([a[0], a[:, 0], a[:, -1]]), axis=0); d = np.sqrt(((a - bg) ** 2).sum(2))
+  mask = np.zeros((h, w), bool); q = deque([(0, x) for x in range(w)] + [(y, 0) for y in range(h)] + [(y, w - 1) for y in range(h)])
+  while q:
+      y, x = q.popleft()
+      if mask[y, x] or d[y, x] > 22: continue
+      mask[y, x] = True
+      for yy, xx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+          if 0 <= yy < h and 0 <= xx < w and not mask[yy, xx]: q.append((yy, xx))
+  alpha = Image.fromarray(((~mask) * 255).astype("uint8")).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
+  t.putalpha(alpha); save(t, out / f"{outn}.webp", 1600); save(t, out / f"{outn}-800.webp", 800)
 n = Image.open(raw / "bg/nsk.png").convert("RGB"); save(n, out / "nsk.webp", 1536, 78); save(n, out / "nsk-900.webp", 900, 75)

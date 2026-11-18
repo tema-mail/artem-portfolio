@@ -6,6 +6,7 @@ import '@fontsource-variable/inter';
 import '../../styles/site.css';
 
 const B = import.meta.env.BASE_URL;
+const V = 1;
 const img = (p: string) => `${B}img/${p}`;
 const tg = 'https://t.me/teyesnsk';
 const site = 'https://teyes-sibir.ru/';
@@ -24,7 +25,7 @@ const title = 'TEYES Sibir – установка мультимедиа Teyes �
 </head>
 <body class="teyes">
   <header class="top">
-    <span></span>
+    <nav class="variants" aria-label="Варианты"><a href={`${B}teyes/`} aria-current={V===1?'page':undefined}>Вариант 1</a><a href={`${B}teyes/v2/`} aria-current={V===2?'page':undefined}>Вариант 2</a></nav>
     <a class="top__cta" href={tg} target="_blank" rel="noopener">Записаться</a>
   </header>
 
@@ -69,7 +70,10 @@ const title = 'TEYES Sibir – установка мультимедиа Teyes �
 </html>
 
 <style is:global>
-  .teyes .top { justify-content: flex-end; }
+  .variants { display: flex; gap: 6px; background: rgba(27,13,49,.78); backdrop-filter: blur(8px); padding: 5px; border-radius: 12px; }
+  .variants a { font: 400 12px var(--display); text-transform: uppercase; text-decoration: none; padding: 8px 10px; border-radius: 8px; opacity: .7; }
+  .variants a[aria-current] { background: #fff; color: #d31c2a; opacity: 1; }
+  .teyes .top { justify-content: space-between; }
   .teyes .scene__title { top: 19%; }
   .teyes .scene__hero--team { height: 74%; }
   .teyes .welcome h2 { color: #d31c2a; }

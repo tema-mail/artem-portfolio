@@ -1,0 +1,5 @@
+Edit image 1 (a painted group portrait of three men in black T'EYES SIBIR TEAM hoodies). Rearrange the men:
+- Center: the man with the yellow beanie (he is the man from image 2). Remove his beanie completely and show his natural short dark brown hair, neatly cut, matching his beard color. Keep his face exactly as in image 2: same features, eyes, nose, smile, beard, age.
+- Right: the clean-shaven man with short dark hair and moles who is currently in the center (he is the man from image 3). Keep his face exactly as in image 3.
+- Left: the bearded curly-haired man stays on the left, unchanged.
+Keep the art style, sunset rim lighting, identical black hoodies with the white "T'EYES SIBIR" print and red "TEAM" badge on every chest, half-body framing and the plain flat light grey background of image 1. The center man stands slightly in front, arms crossed. No other text, no logos, no palm trees.
