@@ -8,3 +8,4 @@
 - 18.11.2026 – сторис TEYES 1080x1920: /teyes/story/ (?v=1), фон кодом scripts/story_bg.py (Codex разлогинен – нужен codex login). Файлы: ~/Downloads/teyes-storis.
 - 19.11.2026 – 8 сторис впятером через Codex imagegen (0 ₽): assets/raw/gpt (run8.sh, variants.txt), файлы ~/Downloads/teyes-storis/gpt. Ждёт: номера и третьего парня (видео не найдено).
 - 19.11.2026 – 6-й парень (guy3-src.jpg, в очках): готов v5-6 (~/Downloads/teyes-storis/shestero). v4, v6 – лимит imagegen Plus, сброс ~05:00 НСК; повтор: cd assets/raw/gpt && ./add6.sh v4 v6.
+- 19.11.2026 – v4-6, v6-6 через OpenRouter openai/gpt-5.4-image-2 (or_img.py), $0,43. Все сторис: ~/Downloads/teyes-storis/teyes-storis-vse.zip.
