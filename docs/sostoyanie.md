@@ -6,3 +6,4 @@
 - 18.11.2026 – концепт первого экрана TEYES Sibir: /teyes/ (команда Алексей/Артём/Кирилл в толстовках TEYES SIBIR Team, Новосибирск, 1000+ машин). Segmind $0,28. Отчёт: https://tema-mail.github.io/razbory/teyes-koncept-7f9f52ae/ . Ждёт: «да» и куда дальше (главная teyes-sibir.ru или соцсети).
 - 18.11.2026 – вариант 2 TEYES: /teyes/v2/ – Кирилл в центре без шапки (причёска дорисована), Артём справа. Segmind ещё $0,28. Ждёт: выбор варианта.
 - 18.11.2026 – сторис TEYES 1080x1920: /teyes/story/ (?v=1), фон кодом scripts/story_bg.py (Codex разлогинен – нужен codex login). Файлы: ~/Downloads/teyes-storis.
+- 19.11.2026 – 8 сторис впятером через Codex imagegen (0 ₽): assets/raw/gpt (run8.sh, variants.txt), файлы ~/Downloads/teyes-storis/gpt. Ждёт: номера и третьего парня (видео не найдено).
