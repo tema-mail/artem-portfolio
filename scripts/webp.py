@@ -47,3 +47,11 @@ for tn, outn in (("team1", "teyes-team"), ("team2", "teyes-team-v2")):
   alpha = Image.fromarray(((~mask) * 255).astype("uint8")).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
   t.putalpha(alpha); save(t, out / f"{outn}.webp", 1600); save(t, out / f"{outn}-800.webp", 800)
 n = Image.open(raw / "bg/nsk.png").convert("RGB"); save(n, out / "nsk.webp", 1536, 78); save(n, out / "nsk-900.webp", 900, 75)
+# вариант 3 «больше Новосибирск» (19.11): фон без пальм, сайт и сторис
+if (raw / "bg/nsk2.png").exists():
+    n2 = Image.open(raw / "bg/nsk2.png").convert("RGB"); n2 = n2.resize((1536, round(n2.height * 1536 / n2.width)), Image.LANCZOS)
+    save(n2, out / "nsk2.webp", 1536, 78); save(n2, out / "nsk2-900.webp", 900, 75)
+if (raw / "bg/nsk2-story.png").exists():
+    s2 = Image.open(raw / "bg/nsk2-story.png").convert("RGB"); k = max(1080 / s2.width, 1920 / s2.height)
+    s2 = s2.resize((round(s2.width * k), round(s2.height * k)), Image.LANCZOS); x = (s2.width - 1080) // 2; y = (s2.height - 1920) // 2
+    save(s2.crop((x, y, x + 1080, y + 1920)), out / "nsk2-story.webp", 1080, 80)

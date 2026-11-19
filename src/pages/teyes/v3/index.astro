@@ -1,0 +1,92 @@
+---
+// Вариант 3 (Артём 19.11.2026: «чтобы больше на Новосибирск похоже»): фон без пальм – березы, сосны, Оперный, Невский собор, Бугринский и метромост. Команда как в варианте 2. Концепт первого экрана для TEYES Sibir (Артём 18.11.2026): как портфолио, но команда в толстовках TEYES SIBIR Team,
+// за окном – пальмы и Новосибирск (Оперный, Бугринский мост), счётчик «1000+ сделанных машин».
+import '@fontsource/dela-gothic-one';
+import '@fontsource-variable/inter';
+import '../../../styles/site.css';
+
+const B = import.meta.env.BASE_URL;
+const V = 3;
+const img = (p: string) => `${B}img/${p}`;
+const tg = 'https://t.me/teyesnsk';
+const site = 'https://teyes-sibir.ru/';
+const title = 'TEYES Sibir – установка мультимедиа Teyes в Новосибирске | концепт, вариант 3';
+---
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content="Концепт первого экрана TEYES Sibir: команда, 1000+ машин, Новосибирск." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#2a1446" />
+  <link rel="preload" as="image" href={img('nsk2.webp')} imagesrcset={`${img('nsk2-900.webp')} 900w, ${img('nsk2.webp')} 1536w`} imagesizes="100vw" />
+</head>
+<body class="teyes">
+  <header class="top">
+    <nav class="variants" aria-label="Варианты"><a href={`${B}teyes/`} aria-current={V===1?'page':undefined}><span class="vw">Вариант </span>1</a><a href={`${B}teyes/v2/`} aria-current={V===2?'page':undefined}><span class="vw">Вариант </span>2</a><a href={`${B}teyes/v3/`} aria-current={V===3?'page':undefined}><span class="vw">Вариант </span>3</a></nav>
+    <a class="top__cta" href={tg} target="_blank" rel="noopener">Записаться</a>
+  </header>
+
+  <main>
+    <section class="scene" aria-label="TEYES Sibir">
+      <div class="stage">
+        <picture class="scene__bg">
+          <source srcset={`${img('nsk2-900.webp')} 900w, ${img('nsk2.webp')} 1536w`} sizes="100vw" type="image/webp" />
+          <img src={img('nsk2.webp')} alt="" width="1536" height="864" fetchpriority="high" />
+        </picture>
+
+        <p class="scene__brand">установочный центр · новосибирск</p>
+        <h1 class="scene__title" aria-label="TEYES Sibir – установочный центр в Новосибирске">
+          <span>TEYES</span><span>SIBIR</span>
+        </h1>
+
+        <img class="scene__hero scene__hero--team" src={img('teyes-team-v2.webp')} srcset={`${img('teyes-team-v2-800.webp')} 800w, ${img('teyes-team-v2.webp')} 1600w`} sizes="(max-width: 760px) 120vw, 70vw" alt="Команда TEYES Sibir: Алексей, Кирилл и Артём в толстовках TEYES SIBIR Team" width="1600" height="1195" />
+
+        <div class="hud">
+          <div class="hud__num">1000</div>
+          <div class="hud__label">сделанных машин</div>
+          <div class="hud__stars" aria-label="Пять звёзд">★★★★★</div>
+        </div>
+
+        <ul class="chips">
+          <li>мультимедиа teyes</li><li>сигнализации</li><li>автозвук</li><li>шумоизоляция</li>
+        </ul>
+
+        <a class="start" href={tg} target="_blank" rel="noopener">Начать</a>
+        <a class="badge" href={site} target="_blank" rel="noopener" aria-label="Сайт TEYES Sibir">T</a>
+      </div>
+
+      <aside class="welcome">
+        <h2>Добро пожаловать в TEYES Sibir</h2>
+        <p>Официальный установочный центр Teyes в Новосибирске. Ставим мультимедиа, сигнализации и звук – мастера с опытом 10+ лет. Сухарная, 35 к13.</p>
+        <a class="welcome__shot" href={site} target="_blank" rel="noopener"><img src={img('works/teyes.webp')} alt="Сайт TEYES Sibir" width="960" height="600" loading="lazy" /></a>
+        <a class="welcome__link" href={site} target="_blank" rel="noopener">Наши работы <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
+
+<style is:global>
+  .variants { display: flex; gap: 6px; background: rgba(27,13,49,.78); backdrop-filter: blur(8px); padding: 5px; border-radius: 12px; }
+  .variants a { font: 400 12px var(--display); text-transform: uppercase; text-decoration: none; padding: 8px 10px; border-radius: 8px; opacity: .7; }
+  .variants a[aria-current] { background: #fff; color: #d31c2a; opacity: 1; }
+  .teyes .top { justify-content: space-between; }
+  .teyes .scene__title { top: 19%; }
+  .teyes .scene__hero--team { height: 74%; }
+  .teyes .welcome h2 { color: #d31c2a; }
+  .teyes .hud__label { color: #d31c2a; }
+  @media (max-width: 760px) {
+    .teyes .top__cta { display: inline-block; padding: 10px 14px; font-size: 13px; }
+    .vw { display: none; }
+    .variants a { padding: 8px 12px; }
+    .teyes .scene__hero--team { height: auto; width: 128%; }
+    .teyes .scene__title { font-size: clamp(56px, 19vw, 100px); top: 12%; }
+    .teyes .scene__brand { display: none; }
+    .teyes .hud { left: 50%; transform: translateX(-50%); top: auto; bottom: 18px; justify-items: center; }
+    .teyes .hud__stars { display: none; }
+    .teyes .start { width: 72px; height: 72px; font-size: 11px; border-width: 4px; }
+  }
+</style>
