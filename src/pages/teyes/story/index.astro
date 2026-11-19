@@ -36,7 +36,7 @@ const img = (p: string) => `${B}img/${p}`;
     const p = new URLSearchParams(location.search);
     const st = document.getElementById('story')!;
     if (p.get('v') === '1') (document.getElementById('team') as HTMLImageElement).src = st.dataset.team1!;
-    if (p.get('bg') === '2') (document.getElementById('bg') as HTMLImageElement).src = st.dataset.bg2!;
+    if (p.get('bg') === '2') { (document.getElementById('bg') as HTMLImageElement).src = st.dataset.bg2!; st.classList.add('nsk2'); }
     // превью в браузере: вписать 1080×1920 в окно; для съёмки окно и так 1080×1920
     const fit = () => { const k = Math.min(innerWidth / 1080, innerHeight / 1920, 1); st.style.transform = `scale(${k})`; };
     addEventListener('resize', fit); fit();
@@ -58,6 +58,8 @@ const img = (p: string) => `${B}img/${p}`;
     font-size: 215px; line-height: .86; letter-spacing: -.01em; text-shadow: 0 12px 0 #6b2a7f, 0 24px 60px rgba(40, 0, 60, .35);
   }
   .team { position: absolute; left: 50%; bottom: 290px; width: 1120px; height: auto; transform: translateX(-50%); filter: drop-shadow(0 30px 50px rgba(60, 0, 50, .45)); }
+  /* фон 2: команда меньше, чтобы над головами были видны Оперный и Бугринский мост */
+  .nsk2 .team { width: 840px; bottom: 300px; }
   .hud { position: absolute; left: 50%; top: 712px; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; white-space: nowrap; }
   .num { font-size: 92px; line-height: 1; border: 5px solid #fff; padding: 8px 28px 16px; text-shadow: 0 6px 0 #6b2a7f; background: rgba(42, 20, 70, .3); }
   .num i { font-style: normal; color: #ffd23f; }

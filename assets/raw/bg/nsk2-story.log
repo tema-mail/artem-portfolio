@@ -1,11 +1,10 @@
-Готово. Изображение создано встроенным `imagegen` и сохранено как [nsk2-story.png](/Users/artemgalimov/Sites/artem-portfolio/assets/raw/bg/nsk2-story.png).
+Готово. Изображение сохранено: [nsk2-story.png](/Users/artemgalimov/Sites/artem-portfolio/assets/raw/bg/nsk2-story.png) — PNG, 936×1664 px, точное соотношение 9:16.
 
-Размер: 864×1536 px, точное соотношение 9:16. API-ключи и `scripts/image_gen.py` не использовались.
-
-Точная строка, переданная в `imagegen`:
+Точная строка, переданная в imagegen:
 
 ```text
-Tall vertical painted illustration of Novosibirsk, Siberia, seen from the bank of the wide Ob river at golden-hour sunset, in the style of 2000s video game loading-screen artwork: sky gradient from deep violet at the top through magenta and pink to warm peach-orange at the horizon, large soft glowing sun low on the horizon. Recognizable Novosibirsk landmarks on the horizon: the Novosibirsk Opera and Ballet Theatre with its huge silver dome and columned portico in the lower left; the red-brick Alexander Nevsky Cathedral with golden onion domes next to it; the small white Chapel of Saint Nicholas with a golden dome; Soviet-era panel high-rises and a few modern glass towers of the city centre; on the right the long red arched Bugrinsky bridge over the Ob and the long blue covered metro bridge further away. Foreground framing: dark purple silhouettes of white-trunked Siberian birch trees and tall pine trees on the far left and right edges, a thin layer of first snow on the river bank. No palm trees. Painterly, crisp silhouettes, rich saturated colors, soft frosty haze. No people, no text, no logos, no cars. The center of the image is calm and empty sky.
+Tall vertical painted illustration of Novosibirsk, Siberia, at golden-hour sunset, in the style of 2000s video game loading-screen artwork: sky gradient from deep violet at the top through magenta and pink to warm peach-orange, large soft glowing sun. Composition for a phone story: the upper 35% is calm empty violet sky. In the middle band (from 35% to 70% of the height) large, close, clearly recognizable Novosibirsk landmarks standing along both side edges: on the LEFT edge the Novosibirsk Opera and Ballet Theatre with its huge silver dome and columned portico, and behind it the red-brick Alexander Nevsky Cathedral with golden onion domes; on the RIGHT edge the big red arch of the Bugrinsky bridge over the Ob river rising high, with Soviet panel high-rises and modern glass towers behind. The central vertical column between them is open: distant city skyline low on the horizon and the glowing sun. The bottom 30%: the wide Ob river with sunset reflections and a snowy river bank, dark silhouettes of white-trunked birch trees and pine trees at the very edges. No palm trees. Painterly, crisp silhouettes, rich saturated colors, soft frosty haze. No people, no text, no logos, no cars.
 ```
 
-Аудиоверсия недоступна: подходящий естественный мужской голос создать в этой среде не могу.
+Естественную аудиоверсию мужским низким голосом в этом интерфейсе сгенерировать не могу.
+
